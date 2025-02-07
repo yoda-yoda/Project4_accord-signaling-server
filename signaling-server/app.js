@@ -146,7 +146,7 @@ server.on('upgrade', (request, socket, head) => {
 // ================= Consul Integration Start =================
 
 const consul = new Consul({
-  host: '172.30.1.53', // Consul 서버 주소
+  host: '3.25.127.75', // Consul 서버 주소
   port: 8500,          // Consul 서버 포트
   promisify: true,
 })
@@ -161,10 +161,10 @@ const registerWithConsul = async () => {
     await consul.agent.service.register({
       id: serviceId,
       name: 'signaling-server',
-      address: 'localhost',
+      address: '3.107.54.93',
       port: port,
       check: {
-        http: `http://172.30.1.53:${port}/health`,
+        http: `http://3.107.54.93:${port}/health`,
         interval: '10s',
         timeout: '5s',
         deregistercriticalserviceafter: '1m',
