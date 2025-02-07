@@ -161,7 +161,7 @@ const registerWithConsul = async () => {
     await consul.agent.service.register({
       id: serviceId,
       name: 'signaling-server',
-      address: '172.30.1.53',
+      address: 'localhost',
       port: port,
       check: {
         http: `http://172.30.1.53:${port}/health`,
